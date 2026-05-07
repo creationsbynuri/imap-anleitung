@@ -21,17 +21,23 @@
 
   .step-right { flex: 1; padding-bottom: 24px; padding-top: 4px; }
   .step-title { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
-  .step-desc { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 0; }
+  .step-desc { font-size: 14px; color: #666; line-height: 1.6; }
   .step-desc strong { color: #1a1a1a; }
 
   .data-box { background: #fff; border: 1px solid #e8e8e5; border-radius: 12px; padding: 14px 16px; margin-top: 12px; }
   .data-box.highlight { background: #f0f7ff; border-color: #bcd8f8; }
   .data-box.server { background: #f7f7f5; border-color: #e8e8e5; }
-  .data-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #f0f0ee; gap: 12px; }
+
+  .data-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #f0f0ee; gap: 8px; }
   .data-row:last-child { border-bottom: none; }
-  .data-label { font-size: 13px; color: #888; white-space: nowrap; }
-  .data-value { font-size: 13px; font-weight: 600; color: #1a1a1a; font-family: 'SF Mono', 'Courier New', monospace; background: #f0f0ee; padding: 3px 8px; border-radius: 6px; text-align: right; word-break: break-all; }
+  .data-label { font-size: 13px; color: #888; white-space: nowrap; flex-shrink: 0; }
+  .data-right { display: flex; align-items: center; gap: 6px; }
+  .data-value { font-size: 13px; font-weight: 600; color: #1a1a1a; font-family: 'SF Mono', 'Courier New', monospace; background: #f0f0ee; padding: 3px 8px; border-radius: 6px; word-break: break-all; }
   .data-box.highlight .data-value { background: #dceeff; color: #0a4a8a; }
+
+  .copy-btn { background: none; border: 1px solid #d0d0cc; border-radius: 6px; padding: 4px 7px; cursor: pointer; font-size: 13px; color: #888; flex-shrink: 0; transition: all 0.15s; line-height: 1; }
+  .copy-btn:active { transform: scale(0.92); }
+  .copy-btn.copied { background: #e8f5ec; border-color: #7ecb94; color: #1a6b35; }
 
   .section-divider { font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 0 4px; }
 
@@ -40,10 +46,12 @@
 
   .webmail-banner { background: #1a1a1a; border-radius: 14px; padding: 18px 20px; margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
   .webmail-icon { font-size: 28px; flex-shrink: 0; }
-  .webmail-text { color: #fff; }
-  .webmail-text .wm-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .webmail-text { color: #fff; flex: 1; }
+  .webmail-text .wm-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
   .webmail-text a { color: #7dd3fc; font-size: 13px; }
   .webmail-text .wm-hint { font-size: 12px; color: #888; margin-top: 2px; }
+  .wm-copy { background: none; border: 1px solid #444; border-radius: 6px; padding: 5px 8px; cursor: pointer; font-size: 13px; color: #aaa; flex-shrink: 0; transition: all 0.15s; }
+  .wm-copy.copied { background: #1a3a1a; border-color: #4a8a5a; color: #7ecb94; }
 
   .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 8px; padding-bottom: 16px; }
 </style>
@@ -62,9 +70,10 @@
     <div class="webmail-icon">🌐</div>
     <div class="webmail-text">
       <div class="wm-title">E-Mails im Browser lesen</div>
-      <a href="https://chocobo.mxrouting.net" target="_blank">chocobo.mxrouting.net</a>
+      <a href="https://chocobo.mxrouting.net/roundcube" target="_blank">chocobo.mxrouting.net/roundcube</a>
       <div class="wm-hint">Mit E-Mail + Passwort einloggen</div>
     </div>
+    <button class="wm-copy" onclick="copyText('https://chocobo.mxrouting.net/roundcube', this)">📋</button>
   </div>
 
   <!-- Schritt 1 -->
@@ -94,7 +103,10 @@
       <div class="data-box highlight">
         <div class="data-row">
           <span class="data-label">E-Mail-Adresse</span>
-          <span class="data-value">info@fliegengitter-sineklik.de</span>
+          <div class="data-right">
+            <span class="data-value">info@fliegengitter-sineklik.de</span>
+            <button class="copy-btn" onclick="copyText('info@fliegengitter-sineklik.de', this)">📋</button>
+          </div>
         </div>
       </div>
     </div>
@@ -118,7 +130,10 @@
       <div class="data-box highlight">
         <div class="data-row">
           <span class="data-label">Passwort</span>
-          <span class="data-value">Erayensar1012</span>
+          <div class="data-right">
+            <span class="data-value">Erayensar1012</span>
+            <button class="copy-btn" onclick="copyText('Erayensar1012', this)">📋</button>
+          </div>
         </div>
       </div>
     </div>
@@ -132,11 +147,26 @@
       <div class="step-desc">Tragen Sie die Einstellungen für den Posteingang (IMAP) genau so ein:</div>
       <div class="data-box server">
         <div class="section-divider">Posteingang (IMAP)</div>
-        <div class="data-row"><span class="data-label">Server</span><span class="data-value">chocobo.mxrouting.net</span></div>
-        <div class="data-row"><span class="data-label">Port</span><span class="data-value">993</span></div>
-        <div class="data-row"><span class="data-label">Sicherheit</span><span class="data-value">SSL / TLS</span></div>
-        <div class="data-row"><span class="data-label">Benutzername</span><span class="data-value">info@fliegengitter-sineklik.de</span></div>
-        <div class="data-row"><span class="data-label">Passwort</span><span class="data-value">Erayensar1012</span></div>
+        <div class="data-row">
+          <span class="data-label">Server</span>
+          <div class="data-right"><span class="data-value">chocobo.mxrouting.net</span><button class="copy-btn" onclick="copyText('chocobo.mxrouting.net', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Port</span>
+          <div class="data-right"><span class="data-value">993</span><button class="copy-btn" onclick="copyText('993', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Sicherheit</span>
+          <div class="data-right"><span class="data-value">SSL / TLS</span><button class="copy-btn" onclick="copyText('SSL / TLS', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Benutzername</span>
+          <div class="data-right"><span class="data-value">info@fliegengitter-sineklik.de</span><button class="copy-btn" onclick="copyText('info@fliegengitter-sineklik.de', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Passwort</span>
+          <div class="data-right"><span class="data-value">Erayensar1012</span><button class="copy-btn" onclick="copyText('Erayensar1012', this)">📋</button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -149,11 +179,26 @@
       <div class="step-desc">Jetzt die Einstellungen für den Postausgang (SMTP) eingeben:</div>
       <div class="data-box server">
         <div class="section-divider">Postausgang (SMTP)</div>
-        <div class="data-row"><span class="data-label">Server</span><span class="data-value">chocobo.mxrouting.net</span></div>
-        <div class="data-row"><span class="data-label">Port</span><span class="data-value">587</span></div>
-        <div class="data-row"><span class="data-label">Sicherheit</span><span class="data-value">STARTTLS</span></div>
-        <div class="data-row"><span class="data-label">Benutzername</span><span class="data-value">info@fliegengitter-sineklik.de</span></div>
-        <div class="data-row"><span class="data-label">Passwort</span><span class="data-value">Erayensar1012</span></div>
+        <div class="data-row">
+          <span class="data-label">Server</span>
+          <div class="data-right"><span class="data-value">chocobo.mxrouting.net</span><button class="copy-btn" onclick="copyText('chocobo.mxrouting.net', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Port</span>
+          <div class="data-right"><span class="data-value">587</span><button class="copy-btn" onclick="copyText('587', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Sicherheit</span>
+          <div class="data-right"><span class="data-value">STARTTLS</span><button class="copy-btn" onclick="copyText('STARTTLS', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Benutzername</span>
+          <div class="data-right"><span class="data-value">info@fliegengitter-sineklik.de</span><button class="copy-btn" onclick="copyText('info@fliegengitter-sineklik.de', this)">📋</button></div>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Passwort</span>
+          <div class="data-right"><span class="data-value">Erayensar1012</span><button class="copy-btn" onclick="copyText('Erayensar1012', this)">📋</button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -169,8 +214,21 @@
     </div>
   </div>
 
-  <div class="footer">Bei Fragen: Topify Media · topifymedia.de</div>
+  <div class="footer">Bei Fragen: Topify Media · nuri@topifymedia.de</div>
 
 </div>
+
+<script>
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = '✓';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.textContent = '📋';
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+}
+</script>
 </body>
 </html>
