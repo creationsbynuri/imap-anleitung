@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Mail Einrichtung – fliegengitter-sineklik.de</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a1a; padding: 24px 16px; }
+  .container { max-width: 560px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 28px; }
+  .logo { font-size: 12px; font-weight: 600; color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #888; }
+
+  .step { display: flex; gap: 0; margin-bottom: 0; position: relative; }
+  .step-left { display: flex; flex-direction: column; align-items: center; width: 44px; flex-shrink: 0; }
+  .num { width: 34px; height: 34px; border-radius: 50%; background: #1a1a1a; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; z-index: 1; }
+  .line { width: 2px; background: #e8e8e5; flex: 1; min-height: 16px; }
+  .step:last-child .line { display: none; }
+
+  .step-right { flex: 1; padding-bottom: 24px; padding-top: 4px; }
+  .step-title { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+  .step-desc { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 0; }
+  .step-desc strong { color: #1a1a1a; }
+
+  .data-box { background: #fff; border: 1px solid #e8e8e5; border-radius: 12px; padding: 14px 16px; margin-top: 12px; }
+  .data-box.highlight { background: #f0f7ff; border-color: #bcd8f8; }
+  .data-box.server { background: #f7f7f5; border-color: #e8e8e5; }
+  .data-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #f0f0ee; gap: 12px; }
+  .data-row:last-child { border-bottom: none; }
+  .data-label { font-size: 13px; color: #888; white-space: nowrap; }
+  .data-value { font-size: 13px; font-weight: 600; color: #1a1a1a; font-family: 'SF Mono', 'Courier New', monospace; background: #f0f0ee; padding: 3px 8px; border-radius: 6px; text-align: right; word-break: break-all; }
+  .data-box.highlight .data-value { background: #dceeff; color: #0a4a8a; }
+
+  .section-divider { font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 0 4px; }
+
+  .tip { background: #fff8ed; border: 1px solid #fde8b0; border-radius: 10px; padding: 12px 14px; margin-top: 12px; font-size: 13px; color: #7a5800; line-height: 1.5; }
+  .success { background: #f0faf3; border: 1px solid #b0e0bc; border-radius: 10px; padding: 12px 14px; margin-top: 12px; font-size: 13px; color: #1a6b35; line-height: 1.5; }
+
+  .webmail-banner { background: #1a1a1a; border-radius: 14px; padding: 18px 20px; margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+  .webmail-icon { font-size: 28px; flex-shrink: 0; }
+  .webmail-text { color: #fff; }
+  .webmail-text .wm-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .webmail-text a { color: #7dd3fc; font-size: 13px; }
+  .webmail-text .wm-hint { font-size: 12px; color: #888; margin-top: 2px; }
+
+  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 8px; padding-bottom: 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="logo">Topify Media</div>
+    <h1>Ihre E-Mail ist bereit 🎉</h1>
+    <p class="subtitle">Folgen Sie einfach diesen Schritten</p>
+  </div>
+
+  <!-- Webmail Banner -->
+  <div class="webmail-banner">
+    <div class="webmail-icon">🌐</div>
+    <div class="webmail-text">
+      <div class="wm-title">E-Mails im Browser lesen</div>
+      <a href="https://chocobo.mxrouting.net" target="_blank">chocobo.mxrouting.net</a>
+      <div class="wm-hint">Mit E-Mail + Passwort einloggen</div>
+    </div>
+  </div>
+
+  <!-- Schritt 1 -->
+  <div class="step">
+    <div class="step-left"><div class="num">1</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">Outlook öffnen</div>
+      <div class="step-desc">Öffnen Sie die <strong>Outlook-App</strong> auf Ihrem Handy.</div>
+    </div>
+  </div>
+
+  <!-- Schritt 2 -->
+  <div class="step">
+    <div class="step-left"><div class="num">2</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">Konto hinzufügen</div>
+      <div class="step-desc">Tippen Sie oben links auf Ihr <strong>Profilbild</strong> → dann unten links auf das <strong>+ Symbol</strong> → dann auf <strong>"Konto hinzufügen"</strong>.</div>
+    </div>
+  </div>
+
+  <!-- Schritt 3 -->
+  <div class="step">
+    <div class="step-left"><div class="num">3</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">E-Mail-Adresse eingeben</div>
+      <div class="step-desc">Geben Sie diese Adresse ein und tippen Sie auf <strong>"Weiter"</strong>.</div>
+      <div class="data-box highlight">
+        <div class="data-row">
+          <span class="data-label">E-Mail-Adresse</span>
+          <span class="data-value">info@fliegengitter-sineklik.de</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schritt 4 -->
+  <div class="step">
+    <div class="step-left"><div class="num">4</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">IMAP auswählen</div>
+      <div class="step-desc">Outlook fragt welchen Anbieter Sie nutzen. Wählen Sie <strong>"IMAP"</strong> aus der Liste.<br>Nicht Exchange, nicht Office 365 – nur <strong>IMAP</strong>.</div>
+    </div>
+  </div>
+
+  <!-- Schritt 5 -->
+  <div class="step">
+    <div class="step-left"><div class="num">5</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">Passwort eingeben</div>
+      <div class="step-desc">Geben Sie Ihr Passwort ein.</div>
+      <div class="data-box highlight">
+        <div class="data-row">
+          <span class="data-label">Passwort</span>
+          <span class="data-value">Erayensar1012</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schritt 6 -->
+  <div class="step">
+    <div class="step-left"><div class="num">6</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">Posteingang einrichten</div>
+      <div class="step-desc">Tragen Sie die Einstellungen für den Posteingang (IMAP) genau so ein:</div>
+      <div class="data-box server">
+        <div class="section-divider">Posteingang (IMAP)</div>
+        <div class="data-row"><span class="data-label">Server</span><span class="data-value">chocobo.mxrouting.net</span></div>
+        <div class="data-row"><span class="data-label">Port</span><span class="data-value">993</span></div>
+        <div class="data-row"><span class="data-label">Sicherheit</span><span class="data-value">SSL / TLS</span></div>
+        <div class="data-row"><span class="data-label">Benutzername</span><span class="data-value">info@fliegengitter-sineklik.de</span></div>
+        <div class="data-row"><span class="data-label">Passwort</span><span class="data-value">Erayensar1012</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schritt 7 -->
+  <div class="step">
+    <div class="step-left"><div class="num">7</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">Postausgang einrichten</div>
+      <div class="step-desc">Jetzt die Einstellungen für den Postausgang (SMTP) eingeben:</div>
+      <div class="data-box server">
+        <div class="section-divider">Postausgang (SMTP)</div>
+        <div class="data-row"><span class="data-label">Server</span><span class="data-value">chocobo.mxrouting.net</span></div>
+        <div class="data-row"><span class="data-label">Port</span><span class="data-value">587</span></div>
+        <div class="data-row"><span class="data-label">Sicherheit</span><span class="data-value">STARTTLS</span></div>
+        <div class="data-row"><span class="data-label">Benutzername</span><span class="data-value">info@fliegengitter-sineklik.de</span></div>
+        <div class="data-row"><span class="data-label">Passwort</span><span class="data-value">Erayensar1012</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schritt 8 -->
+  <div class="step">
+    <div class="step-left"><div class="num">8</div><div class="line"></div></div>
+    <div class="step-right">
+      <div class="step-title">Anmelden & fertig!</div>
+      <div class="step-desc">Tippen Sie auf <strong>"Anmelden"</strong>. Die Einrichtung dauert 1–2 Minuten.</div>
+      <div class="success">✅ Wenn alles grün ist – fertig! Sie können jetzt E-Mails senden und empfangen.</div>
+      <div class="tip">⚠️ Fehlermeldung? Prüfen Sie ob Port und Sicherheitseinstellung genau so eingegeben sind wie oben angegeben.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bei Fragen: Topify Media · topifymedia.de</div>
+
+</div>
+</body>
+</html>
